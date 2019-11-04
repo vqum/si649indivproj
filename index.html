@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>SI 649 InfoVis Individual Project - Vincent Qiu</title>
+    <link rel="stylesheet" type="text/css" href="html5reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Be+Vietnam' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <div class='upper'>
+        <p class='header'>SI 649 InfoVis Individual Project - Vincent Qiu</p>
+        
+        <div class='spacer'></div>
+        
+        <div style="padding: 1px 0; background-color: gray;"></div>
+    </div>
+
+    <div class='lower'>
+        <div class='spacer'></div>
+
+        <p class="subheader">Time-Dependent Preferences</p>
+        </br>
+
+        <p>
+            Behavioral economics is the study of human psychological effects on their decision-making<sup>1</sup>. 
+            It comes out of observations of individuals seemingly selecting unpredictable or irrational choices in some 
+            situations. One concept that comes out of this field is that of time-dependent preferences. This concept 
+            addresses the potential for an individual's preferences to be influenced by the moment of decision-making or 
+            the among of time until the chosen option pays off, or the potential for an individual's preferences to change 
+            as time passes. The concept can be demonstrated by the quasi-hyperbolic discounting model<sup>2</sup>, 
+            as represented by this equation:
+            </br>
+            </br>
+        </p>
+
+        <p style="text-align: center; margin: 0 auto;">
+            <span style="font-weight: bold;"">U<sub>T</sub></span> 
+            = 
+            <span style="font-weight: bold;"">u<sub>t0</sub></span> 
+            + 
+            <span style="font-weight: bold;"">&beta;</span> 
+            (
+                <span style="font-weight: bold;"">&delta; u<sub>t1</sub></span> 
+                + 
+                <span style="font-weight: bold;"">&delta;<sup>2</sup> u<sub>t2</sub></span> 
+                + 
+                <span style="font-weight: bold;"">&delta;<sup>3</sup> u<sub>t3</sub></span> 
+                + 
+                <span style="font-weight: bold;"">...</span>
+            )
+            </br>
+            </br>
+            <span style="font-weight: bold;"">U<sub>T</sub></span> is the total utility of an option
+            </br>
+            <span style="font-weight: bold;"">tn</span> is a discrete moment in time
+            </br>
+            <span style="font-weight: bold;"">t0</span> is the moment at which the choice is being made
+            </br>
+            <span style="font-weight: bold;"">u<sub>tn</sub></span> is the marginal utility of the option at that time
+            </br>
+            <span style="font-weight: bold;"">&delta;</span> is the exponential aka geometric discount factor
+            </br>
+            <span style="font-weight: bold;"">&beta;</span> is the quasi-hyperbolic discount factor
+            </br>
+            </br>
+        </p>
+
+        <p>
+            Utility is the economics representation for value<sup>3</sup>. In this case, it is the value provided by  
+            the outcome of a particular option to the decision-maker, and it allows us to assess preferences since 
+            a rational decision-maker should always select the option of greatest utility. Let's explore this concept 
+            through a simplified scenario:
+            </br>
+            </br>
+        </p>
+
+        <table>
+            <tr>
+                <td>Option</td>
+                <td>Day 0</td>
+                <td>Day 1</td>
+                <td>Day 2</td>
+                <td>Day 3</td>
+                <td>Day 4</td>
+            </tr>
+            <tr>
+                <td>Study</td>
+                <td>0</td>
+                <td>12</td>
+                <td>11</td>
+                <td>10</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>Relax</td>
+                <td>0</td>
+                <td>10</td>
+                <td>10</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+        </table>
+        </br>
+
+        <p>
+            Above is the table of options and utilities for a hypothetical student. This student has an exam coming 
+            up and should do some studying in the next few days to prepare for it. This student is smart and recognizes 
+            that studying earlier has greater benefit than studying later, as indicated by the study option decreasing 
+            in utility as the days pass. This student is extra smart and recognizes that taking a day of break is 
+            good for mental health, as indicated by the similar amount of utility gained by the relax option. However, 
+            the exam is pretty significant, so <u>the student only can choose to take 1 day of relaxing</u>, and wants to decide 
+            today (Day 0) which of the upcoming days (Days 1-4) will be reserved for relaxing.
+            </br>
+            </br>
+            The graphs below depict the total discount factor (upper graph) and total utility (lower graph) over time for this 
+            scenario, and the displayed equations will update according to settings for &delta; and &beta;. The initial settings for the discount factors &delta; and &beta; are both 1, which symbolizes an individual 
+            whose preferences are not affected by time. On the total utility graph, the utility value for each day is the total 
+            utility if the student chooses to relax on that day. For example, if on Day 0 the student were to choose to relax on Day 2 and 
+            to study the rest of the days, then the equation calculation would be as follows using the values from the above table:
+            </br>
+            </br>
+            <p style="text-align: center; margin: 0 auto;">
+                <span style="font-weight: bold;"">U<sub>T</sub></span> 
+                = 
+                <span style="font-weight: bold;"">u<sub>t0</sub></span> 
+                + 
+                <span style="font-weight: bold;"">&beta;</span> 
+                (
+                    <span style="font-weight: bold;"">&delta; u<sub>t1</sub></span> 
+                    + 
+                    <span style="font-weight: bold;"">&delta;<sup>2</sup> u<sub>t2</sub></span> 
+                    + 
+                    <span style="font-weight: bold;"">&delta;<sup>3</sup> u<sub>t3</sub></span> 
+                    + 
+                    <span style="font-weight: bold;"">&delta;<sup>4</sup> u<sub>t4</sub></span>
+                ), &delta; = 1, &beta; = 1
+                </br>
+                </br>
+                <span style="font-weight: bold;"">U<sub>T</sub></span> 
+                = 
+                <span style="font-weight: bold;"">u<sub>Day0</sub></span> 
+                + 
+                <span style="font-weight: bold;"">u<sub>Day1</sub></span> 
+                + 
+                <span style="font-weight: bold;"">u<sub>Day2</sub></span> 
+                + 
+                <span style="font-weight: bold;"">u<sub>Day3</sub></span> 
+                + 
+                <span style="font-weight: bold;"">u<sub>Day4</sub></span>
+                </br>
+                </br>
+                <span style="font-weight: bold;"">U<sub>T</sub></span> 
+                = 0 + 12 + 10 + 10 + 9
+                </br>
+                </br>
+                <span style="font-weight: bold;"">U<sub>T</sub></span> = 41
+                </br>
+                </br>
+            </p>
+            Verify that the value for Day 2 on the total utility graph reflects this result. Looking more closely at the total utility graph, 
+            we can see a slight upward slope, which tells us that this student at the current moment in time prefers holding off on relaxing 
+            until a later day. Truly this is a diligent student.
+            </br>
+            </br>
+            Now, what if the student had time-dependent preferences? Adjust the setting for &delta; to a smaller number and 
+            observe what happens to the discount factor and utility graphs. With &delta; &lt; 1, the student prefers relaxing sooner 
+            rather than later. In this case, the student's utility is said to be affected by exponential or geometric discounting, and it causes 
+            them to be present-biased in their choices.
+            </br>
+            </br>
+            To go further, keeping &delta; at a value less than 1, adjust the setting for &beta; to a smaller number as well and observe what 
+            happens to the discount factor and utility graphs. Looking at the total utility, with these discounting factors, it appears that 
+            the student is still present-biased as choosing to relax on Day 1 provides more utility than relaxing on any other day. Now, adjust 
+            the bottom slider to change the day of reference to Day 1. Surprisingly, upon arrival of Day 1, the student's preference has changed and 
+            now prefers relaxing at a later time. This is called time-inconsistent preference and is a result of hyperbolic or quasi-hyperbolic 
+            discounting with both &delta; &lt; 1 and &beta; &lt; 1. Adjust &beta; back to 1 and confirm that with solely exponential / geometric 
+            discounting that there are no instances of time-inconsistency: the student consistently prefers relaxing earlier rather than later, 
+            regardless of day of reference.
+        </p>
+
+        <div id="sliders">
+            <div id="d_container">
+                </br>
+                </br>
+                </br>
+                <p>&delta; = <span id="d_value">1</span></p>
+                <input id="d_slider" type="range" min="1" max="6" value="6">
+            </div>
+            <div id="B_container" class="disabled">
+                <p id="desc_text">&beta; cannot be adjusted</br>unless &delta; set to < 1</p>
+                </br>
+                <p>&beta; = <span id="B_value">1</span></p>
+                <input id="B_slider" disabled="true" type="range" min="1" max="6" value="6">
+            </div>
+        </div>
+
+        </br>
+
+        <p style="text-align: center; margin: 0 auto;">
+            <span style="font-weight: bold;">U<sub>T</sub></span> 
+            = 
+            <span style="font-weight: bold;">u<sub id="day0">Day0</sub></span> 
+            <span id="frst">
+            + 
+            <span id="B_upper">1</span> 
+            (
+                <span id="d_one">1</span><span style="font-weight: bold;"> u<sub id="day1">Day1</sub></span> 
+                </span>
+                <span id="scnd">
+                + 
+                <span id="d_two">1</span><sup>2</sup><span style="font-weight: bold;"> u<sub id="day2">Day2</sub></span>
+                </span> 
+                <span id="thrd">
+                + 
+                <span id="d_three">1</span><sup>3</sup><span style="font-weight: bold;"> u<sub id="day3">Day3</sub></span> 
+                </span>
+                <span id="frth">
+                + 
+                <span id="d_four">1</span><sup>4</sup><span style="font-weight: bold;"> u<sub>Day4</sub></span>  
+            )
+            </span>
+        </p>
+
+        </br>
+
+        <p style="text-align: center; margin: 0 auto;">
+            <span style="font-weight: bold;">U<sub>T</sub></span> 
+            = 
+            <span style="font-weight: bold;">u<sub id="d0">Day0</sub></span> 
+            <span id="frs">
+            + 
+            <span id="first">1</span><span style="font-weight: bold;"> u<sub id="d1">Day1</sub></span> 
+            </span>
+            <span id="snd">
+            + 
+            <span id="second">1</span><span style="font-weight: bold;"> u<sub id="d2">Day2</sub></span> 
+            </span>
+            <span id="trd">
+            + 
+            <span id="third">1</span><span style="font-weight: bold;"> u<sub id="d3">Day3</sub></span> 
+            </span>
+            <span id="frt">
+            + 
+            <span id="fourth">1</span><span style="font-weight: bold;"> u<sub>Day4</sub></span>
+            </span>
+        </p>
+
+        </br>
+
+        <img id="discountvis" src="images/110discount.PNG">
+        <img id="utilvis" src="images/110util.PNG">
+
+        </br>
+
+        <div style="text-align: center;">
+            <p>Day <span id="day_value">0</span></p>
+            <input id="day_slider" type="range" min="0" max="4" value="0">
+        </div>
+
+        <div class='spacer'></div>
+
+        <p class="subheader">Clarification of Terms</p>
+        </br>
+        <p>
+            <i>Exponential</i> and <i>geometric</i> discounting are used interchangeably in this article, but they do have a specific distinction: 
+            exponential discounting applies to continuous time and geometric discounting applies to discrete moments of time. In the 
+            example scenario explored in this article, geometric discounting would be the more accurate term. Similarly, <i>hyperbolic</i> 
+            discounting and <i>quasi-hyperbolic</i> discounting are also differentiated in that hyperbolic discounting 
+            applies to continuous time and quasi-hyperbolic discounting applies to discrete moments of time. The specific equation 
+            presented in this article is called the quasi-hyperbolic approximation, and to keep the example simple, a limited number of points in time 
+            were used, which results in lower resolution of the curves. Most visualizations of these discounting models are 
+            smooth curves, and an example of a typical visualization taken from a research paper 
+            is shown below. See if you can adjust the settings of the above graphs to simulate the significant differences between the types 
+            of discounting curves.
+            </br>
+            </br>
+        </p>
+
+        <div style="text-align: center;">
+            <img src="images/graph.PNG" style="display: inline;"><span style="vertical-align: top;"><sup>4</sup></span>
+        </div>
+
+        <div class='spacer'></div>
+
+        <p class="subheader">References</p>
+        </br>
+        <p>
+            <sup>1</sup> <a href="https://www.investopedia.com/terms/b/behavioraleconomics.asp">https://www.investopedia.com/terms/b/behavioraleconomics.asp</a>
+            </br>
+            <sup>2</sup> <a href="https://www.intelligenteconomist.com/time-inconsistency/">https://www.intelligenteconomist.com/time-inconsistency/</a>
+            </br>
+            <sup>3</sup> <a href="https://www.investopedia.com/terms/u/utility.asp">https://www.investopedia.com/terms/u/utility.asp</a>
+            </br>
+            <sup>4</sup> <a href="https://scholar.harvard.edu/files/laibson/files/intertemporal_choice.pdf">https://scholar.harvard.edu/files/laibson/files/intertemporal_choice.pdf</a>
+        </p>
+
+        <div class='spacer'></div>
+    </div>
+</body>
+
+<script>
+    // Slider values for delta and beta
+    var d_slider = document.getElementById("d_slider");
+    var d_output = document.getElementById("d_value");
+    var d_value = 1;
+    var d_file = 1;
+    d_slider.oninput = function() {
+        switch (d_slider.value) {
+            case "1":
+                d_value = 0.5;
+                d_file = 5;
+                document.getElementById("B_container").classList.remove("disabled");
+                document.getElementById("desc_text").classList = "enabled";
+                B_slider.disabled = false;
+                break;
+            case "2":
+                d_value = 0.6;
+                d_file = 6;
+                document.getElementById("B_container").classList.remove("disabled");
+                document.getElementById("desc_text").classList = "enabled";
+                B_slider.disabled = false;
+                break;
+            case "3":
+                d_value = 0.7;
+                d_file = 7;
+                document.getElementById("B_container").classList.remove("disabled");
+                document.getElementById("desc_text").classList = "enabled";
+                B_slider.disabled = false;
+                break;
+            case "4":
+                d_value = 0.8;
+                d_file = 8;
+                document.getElementById("B_container").classList.remove("disabled");
+                document.getElementById("desc_text").classList = "enabled";
+                B_slider.disabled = false;
+                break;
+            case "5":
+                d_value = 0.9;
+                d_file = 9;
+                document.getElementById("B_container").classList.remove("disabled");
+                document.getElementById("desc_text").classList = "enabled";
+                B_slider.disabled = false;
+                break;
+            case "6":
+                d_value = 1;
+                d_file = 1;
+                document.getElementById("B_container").classList = "disabled";
+                document.getElementById("desc_text").classList.remove("enabled");
+                B_slider.value = 6;
+                B_value=1;
+                B_file=1;
+                B_slider.disabled = true;
+                break;
+        }
+        updatePage(d_value,d_file,B_value,B_file,day_file);
+    }
+    var B_slider = document.getElementById("B_slider");
+    var B_output = document.getElementById("B_value");
+    var B_value = 1;
+    var B_file = 1;
+    B_slider.oninput = function() {
+        switch (B_slider.value) {
+            case "1":
+                B_value = 0.5;
+                B_file = 5;
+                break;
+            case "2":
+                B_value = 0.6;
+                B_file = 6;
+                break;
+            case "3":
+                B_value = 0.7;
+                B_file = 7;
+                break;
+            case "4":
+                B_value = 0.8;
+                B_file = 8;
+                break;
+            case "5":
+                B_value = 0.9;
+                B_file = 9;
+                break;
+            case "6":
+                B_value = 1;
+                B_file = 1;
+                break;
+        }
+        updatePage(d_value,d_file,B_value,B_file,day_file);
+    }
+
+    var day0 = document.getElementById("day0");
+    var day1 = document.getElementById("day1");
+    var day2 = document.getElementById("day2");
+    var day3 = document.getElementById("day3");
+    var day4 = document.getElementById("day4");
+
+    var frst = document.getElementById("frst");
+    var scnd = document.getElementById("scnd");
+    var thrd = document.getElementById("thrd");
+    var frth = document.getElementById("frth");
+
+    var d0 = document.getElementById("d0");
+    var d1 = document.getElementById("d1");
+    var d2 = document.getElementById("d2");
+    var d3 = document.getElementById("d3");
+    var d4 = document.getElementById("d4");
+
+    var frs = document.getElementById("frs");
+    var snd = document.getElementById("snd");
+    var trd = document.getElementById("trd");
+    var frt = document.getElementById("frt");
+
+    var day_slider = document.getElementById("day_slider");
+    var day_output = document.getElementById("day_value");
+    var day_file = 0;
+    day_slider.oninput = function() {
+        switch (day_slider.value) {
+            case "0":
+                day0.innerHTML = "Day0";
+                day1.innerHTML = "Day1";
+                day2.innerHTML = "Day2";
+                day3.innerHTML = "Day3";
+                frst.style = "display: initial;";
+                scnd.style = "display: initial;";
+                thrd.style = "display: initial;";
+                frth.style = "display: initial;";
+                d0.innerHTML = "Day0";
+                d1.innerHTML = "Day1";
+                d2.innerHTML = "Day2";
+                d3.innerHTML = "Day3";
+                frs.style = "display: initial;";
+                snd.style = "display: initial;";
+                trd.style = "display: initial;";
+                frt.style = "display: initial;";
+                break;
+            case "1":
+                day0.innerHTML = "Day1";
+                day1.innerHTML = "Day2";
+                day2.innerHTML = "Day3";
+                day3.innerHTML = "Day4";
+                frst.style = "display: initial;";
+                scnd.style = "display: initial;";
+                thrd.style = "display: initial;";
+                frth.style = "display: none;"
+                d0.innerHTML = "Day1";
+                d1.innerHTML = "Day2";
+                d2.innerHTML = "Day3";
+                d3.innerHTML = "Day4";
+                frs.style = "display: initial;";
+                snd.style = "display: initial;";
+                trd.style = "display: initial;";
+                frt.style = "display: none;"
+                break;
+            case "2":
+                day0.innerHTML = "Day2";
+                day1.innerHTML = "Day3";
+                day2.innerHTML = "Day4";
+                frst.style = "display: initial;";
+                scnd.style = "display: initial;";
+                thrd.style = "display: none;";
+                frth.style = "display: none;"
+                d0.innerHTML = "Day2";
+                d1.innerHTML = "Day3";
+                d2.innerHTML = "Day4";
+                frs.style = "display: initial;";
+                snd.style = "display: initial;";
+                trd.style = "display: none;";
+                frt.style = "display: none;"
+                break;
+            case "3":
+                day0.innerHTML = "Day3";
+                day1.innerHTML = "Day4";
+                frst.style = "display: initial;";
+                scnd.style = "display: none;";
+                thrd.style = "display: none;";
+                frth.style = "display: none;"
+                d0.innerHTML = "Day3";
+                d1.innerHTML = "Day4";
+                frs.style = "display: initial;";
+                snd.style = "display: none;";
+                trd.style = "display: none;";
+                frt.style = "display: none;"
+                break;
+            case "4":
+                day0.innerHTML = "Day4";
+                frst.style = "display: none;";
+                scnd.style = "display: none;";
+                thrd.style = "display: none;";
+                frth.style = "display: none;"
+                d0.innerHTML = "Day4";
+                frs.style = "display: none;";
+                snd.style = "display: none;";
+                trd.style = "display: none;";
+                frt.style = "display: none;"
+                break;
+        }
+        day_file = day_slider.value;
+        updatePage(d_value,d_file,B_value,B_file,day_file);
+    }
+
+    var B_upper = document.getElementById("B_upper");
+    var d_one = document.getElementById("d_one");
+    var d_two = document.getElementById("d_two");
+    var d_three = document.getElementById("d_three");
+    var d_four = document.getElementById("d_four");
+    var first = document.getElementById("first");
+    var second = document.getElementById("second");
+    var third = document.getElementById("third");
+    var fourth = document.getElementById("fourth");
+
+    function updatePage(d_value,d_file,B_value,B_file,day_file) {
+        d_output.innerHTML = d_value;
+        B_output.innerHTML = B_value;
+
+        B_upper.innerHTML = B_value;
+        d_one.innerHTML = d_value;
+        d_two.innerHTML = d_value;
+        d_three.innerHTML = d_value;
+        d_four.innerHTML = d_value;
+
+        first.innerHTML = (B_value * d_value).toFixed(2);
+        second.innerHTML = (B_value * (d_value ** 2)).toFixed(2);
+        third.innerHTML = (B_value * (d_value ** 3)).toFixed(2);
+        fourth.innerHTML = (B_value * (d_value ** 4)).toFixed(2);
+
+        day_output.innerHTML = day_file;
+
+        document.getElementById("discountvis").src="images/" + d_file + B_file + day_file + "discount.PNG";
+        document.getElementById("utilvis").src="images/" + d_file + B_file + day_file + "util.PNG";
+    }
+</script>
+
+</html>

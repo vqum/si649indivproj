@@ -1,0 +1,124 @@
+html {
+	background-color: lightgray;
+	font-family: 'Roboto', sans-serif;
+	font-size: calc(10px + 1vh);
+}
+
+body {
+	margin: 0 auto;
+}
+
+.upper {
+	position: fixed;
+	vertical-align: top;
+	width: 100%;
+	background-color: lightblue;
+	z-index: 99;
+	text-align: center;
+}
+
+.header {
+	font-weight: bold;
+	font-size: calc(16px + 1vh);
+	padding: 3vh 0 0 0;
+}
+
+.spacer {
+	padding: 3vh 0;
+}
+
+.lower {
+	position: relative;
+	top: calc(30px + 9vh);
+	width: 70vw;
+	margin: 0 auto;
+	padding: 0 3vw;
+	background-color: white;
+	z-index: 1;
+}
+
+#first {
+	padding: 3vh 0 0 0;
+}
+
+.subheader {
+	font-weight: bold;
+	font-size: calc(11px + 1vh);
+	text-align: left;
+}
+
+img {
+	width: calc(350px + 12vw);
+	margin: 0 auto;
+	display: block;
+}
+
+.caption {
+	font-style: italic;
+	text-align: center;
+}
+
+.line {
+	width: 50vw;
+	height: 0.25vh;
+	border-radius: 0.125vh;
+	margin: 0 auto;
+	background-color: gray;
+}
+
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+table {
+	margin: 0 auto;
+	text-align: center;
+}
+
+td {
+	padding: 1vh;
+	border: 1px solid #dddddd;
+}
+
+#sliders {
+	display: grid;
+	grid-template-areas: 'delta beta';
+}
+
+#d_container {
+	grid-area: delta;
+	text-align: center;
+}
+
+#B_container {
+	grid-area: beta;
+	text-align: center;
+}
+
+.disabled p {
+	color: gray;
+}
+
+.enabled {
+	color: white;
+}
+
+input {
+	width: 20vw;
+	cursor: pointer;
+}
+
+.disabled input {
+	cursor: initial;
+}
